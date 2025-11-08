@@ -1,5 +1,4 @@
-// INTEGRANTES: LEONARDO AMORIM DE SOUSA, LUIS FELIPE DOS SANTOS,
-// THOMAS ANDREW DE SOUZA BATISTA, NATHAN CARDOSO SILVA
+// Integrantes: Caio Ferreira Trindade, Leonardo dos Santos Figueiredo, Pedro Henrique Santos Sant'Anna, Rafael Vianna Souza Grillo, Renan Xavier Mello
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
