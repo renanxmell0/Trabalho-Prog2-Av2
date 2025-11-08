@@ -71,12 +71,13 @@ principal.
 - Pedir um valor que será usado para exibir a quantidade de vendas abaixo deste valor.
 - Exibir a quantidade de vendas que teve exatamente 1 item vendido.
 - Exibir a quantidade de vendas que foram realizadas pela “Luiza”.
-- Exibir a quantidade de compradores que não quiseram informar o sexo. Exiba tam bém o total comprado por homens.
+- Exibir a quantidade de compradores que não quiseram informar o sexo.
 - Exibir o valor total comprado por mulheres.
-- Exibir a quantidade total de itens vendidos. Exiba também a quantidade total de vendas.
+- Exibir a quantidade total de itens vendidos.
+- Exiba a quantidade total de vendas.
 - Exibir o valor total das vendas.
 - Exibir o valor médio de uma venda.
-- Exibir o valor de compra mais cara feito por um homem. Calcule também o valor de compr a m ais bar ata usando a vari ável menorVenda mas não exiba nenhum a m ensag em.
+- Exibir o valor de compra mais cara feito por um homem.
 - Exibir os dados da venda do cliente com o maior nome (se ele fez mais de
 uma compra, exibir os dados de cada venda).
 - Exibir os dados da venda do cliente mais novo (se ele fez mais de uma
