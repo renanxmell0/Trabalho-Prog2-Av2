@@ -5,3 +5,5 @@ Pedro  m 25 Luiza 2 120.00
 Gabriel m 30 Juca 2 700.00
 Elizangella n 65 Luiza 2 50.00
 Hotz n 25 Luiza 2 50.00
+Caio Trindade m 25 Juca 2 60.00
+Caio m 25 Juca 2 70.00
