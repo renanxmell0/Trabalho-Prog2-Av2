@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include <windows.h>
+
 
 /*Estrutura do codigo*/
 
@@ -38,11 +38,13 @@ int main(void) {
     vendas vendas;
     int opcao = 0;
     do {
+        printf("\n== Seja Bem-Vindo à CasacoCraft ==\n");
         printf("\n1) Cadastrar novas vendas\n");
         printf("2) Ver informações de uma venda específica\n");
         printf("3) Ver informações de todas as vendas\n");
-        printf("4) Encerra programa");
-        printf("\nDigite aqui:  ");
+        printf("4) Encerra programa\n");
+        printf("\nQual serviço deseja?  ");
+        printf("\nDigite aqui: ");
         scanf("%i", &opcao);
         switch (opcao) {
         case 1:
@@ -153,7 +155,7 @@ void cadastrarVendas(clientes clientes, vendas *vendas) {
         printf("\nVenda cadastrada com sucesso!\n");
 
         /* Escreve no arquivo */
-        fprintf(arq, "%s %c %d %s %d %.2f\n",
+        fprintf(arq, "%s;%c;%d;%s;%d;%.2f\n",
                 vendas[i].clientes.nome,
                 vendas[i].clientes.sexo,
                 vendas[i].clientes.idade,
@@ -196,19 +198,19 @@ void VendaEspecifica(clientes clientes, vendas *vendas) {
         if (t != NULL && strcmp(t, nome) == 0) {
             printf("nome: %s\n", t);
             
-            t = strtok(NULL, " "); // SEXO
+            t = strtok(NULL, ";"); // SEXO
             printf("sexo: %s\n", t);
             
-            t = strtok(NULL, " "); // idade
+            t = strtok(NULL, ";"); // idade
             printf("idade: %s\n", t);
             
-            t = strtok(NULL, " "); // nome vendedor
+            t = strtok(NULL, ";"); // nome vendedor
             printf("Nome vendedor: %s\n", t);
             
-            t = strtok(NULL, " "); // itens
+            t = strtok(NULL, ";"); // itens
             printf("itens: %s\n", t);
             
-            t = strtok(NULL, " "); // valor total
+            t = strtok(NULL, ";"); // valor total
             printf("valor total: %s\n", t);
             
             somaTotal += atof(t);
@@ -233,7 +235,7 @@ void verTodasVendas(clientes clientes, vendas *vendas) {
 
     //Abrir o arquivo
     FILE *arq;
-    arq = fopen("loja.txt", "r");
+    arq = fopen("loja.txt", "r"); // na função r para ler o arquivo
     if (arq == NULL) {
         printf("Erro ao abrir o arquivo\n");
         return;
@@ -257,7 +259,6 @@ void verTodasVendas(clientes clientes, vendas *vendas) {
     
     float totalMulheres = 0.0;
     do{
-        /* code */
     
     
     /*pega os menores valores dos itens*/
@@ -273,7 +274,7 @@ void verTodasVendas(clientes clientes, vendas *vendas) {
     char linhas[200];
     while (fgets(linhas, sizeof(linhas), arq) != NULL) {
 
-        char *t = strtok(linhas, " "); //Nome
+        char *t = strtok(linhas, ";"); //Nome
         
         if (t != NULL) {
             int nome = strlen(t);
@@ -282,14 +283,14 @@ void verTodasVendas(clientes clientes, vendas *vendas) {
                 maior = nome;
             }
 
-            t = strtok(NULL, " "); // SEXO
+            t = strtok(NULL, ";"); // SEXO
 
             char sexo = tolower(t[0]);
             if (t != NULL && strcmp(t, "n") == 0) {
                 qtdSemSexo++;
             }
 
-            t = strtok(NULL, " "); // idade
+            t = strtok(NULL, ";"); // idade
 
             int idade = atoi(t);
             if (idade < menorIdade) {
@@ -297,20 +298,20 @@ void verTodasVendas(clientes clientes, vendas *vendas) {
             }
             
 
-            t = strtok(NULL, " "); // nome vendedor
+            t = strtok(NULL, ";"); // nome vendedor
 
             if (t != NULL && strcmp(t, "Luiza") == 0) {
                 vendasLuiza++; 
             }
 
-            t = strtok(NULL, " "); // itens
+            t = strtok(NULL, ";"); // itens
 
             qtdtotalitens += atoi(t);
             if (atoi(t) == 1) { 
                 qtditens++;
             }
             
-            t = strtok(NULL, " "); // valor total
+            t = strtok(NULL, ";"); // valor total
             
             valorVenda = atof(t);  
             qtdtotalvalor += valorVenda;
@@ -326,7 +327,7 @@ void verTodasVendas(clientes clientes, vendas *vendas) {
             }
             
 
-            t = strtok(NULL, " "); // Média
+            t = strtok(NULL, ";"); // Média
             
         }
         cont++;
@@ -344,7 +345,7 @@ void verTodasVendas(clientes clientes, vendas *vendas) {
     printf("Valor total de todas as vendas: R$ %.2f\n", qtdtotalvalor);
     printf("Média de vendas: R$ %.2f\n", mediaTotal);
     printf("Maior compra feita por um homem: R$ %.2f\n", maiorCompraHomem);
-    printf("\nNome do cliente com maior quantidade de caracteres: %s (%d caracteres)\n", maiornome, maior);
+    printf("Nome do cliente com maior quantidade de caracteres: %s (%d caracteres)\n", maiornome, maior);
 
     printf("Menor idade entre os clientes: %d\n", menorIdade);
     
@@ -353,7 +354,7 @@ void verTodasVendas(clientes clientes, vendas *vendas) {
     
 
     fclose(arq);
-    printf("Deseja pesquisar novamente? (s/n): ");
+    printf("\nDeseja pesquisar novamente? (s/n): ");
         scanf("  %c", &opcao);
         getchar();
 
