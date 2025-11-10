@@ -1,4 +1,4 @@
-# Trabalho de Programação II
+# Trabalho de Programação II - CasacoCraft
 
 Este trabalho consiste em modelar e implementar um sistema gerenciador para
 uma loja de casacos. Leia atentamente o enunciado do problema, identifique
