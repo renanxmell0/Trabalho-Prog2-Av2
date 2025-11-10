@@ -7,3 +7,4 @@ Elizangella n 65 Luiza 2 50.00
 Hotz n 25 Luiza 2 50.00
 Caio Trindade m 25 Juca 2 60.00
 Caio m 25 Juca 2 70.00
+Ryan m 3 Juca 1 1,00

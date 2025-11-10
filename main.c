@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <locale.h>
+
+#include <windows.h>
 
 /*Estrutura do codigo*/
 
@@ -32,7 +33,7 @@ void verTodasVendas(clientes clientes, vendas *vendas);
 /*Menu*/
 int main(void) {
 
-    setlocale(LC_ALL, "Portuguese");
+    SetConsoleOutputCP(CP_UTF8);
     clientes clientes;
     vendas vendas;
     int opcao = 0;
@@ -249,7 +250,7 @@ void verTodasVendas(clientes clientes, vendas *vendas) {
     float qtdtotalvalor = 0.0;
     float valorVenda = 0.0;
     int cont = 0;
-    // float mediaTotal = 0.0;
+    float mediaTotal = 0.0;
     float maiorCompraHomem = 0.0;
     float valor = 0.0;
     char opcao;
@@ -273,8 +274,9 @@ void verTodasVendas(clientes clientes, vendas *vendas) {
     while (fgets(linhas, sizeof(linhas), arq) != NULL) {
 
         char *t = strtok(linhas, " "); //Nome
-        int nome = strlen(t);
+        
         if (t != NULL) {
+            int nome = strlen(t);
             if (nome > maior) {
                 strcpy(maiornome, t);
                 maior = nome;
@@ -330,7 +332,7 @@ void verTodasVendas(clientes clientes, vendas *vendas) {
         cont++;
     }
     
-    // float mediaTotal = qtdtotalvalor / cont;
+    mediaTotal = qtdtotalvalor / cont;
     printf("\n--- Estatísticas Gerais ---\n");
     printf("\nTotal de vendas com valor menor que R$ %.2f: %d\n", valor, qtdvalortotal);
     printf("Quantidade de vendas com apenas 1 item: %d\n", qtditens);
@@ -340,7 +342,7 @@ void verTodasVendas(clientes clientes, vendas *vendas) {
     printf("Quantidade total de itens vendidos: %d\n", qtdtotalitens);
     printf("Quantidade total de vendas: %d\n", cont);
     printf("Valor total de todas as vendas: R$ %.2f\n", qtdtotalvalor);
-    // printf("Média de vendas: R$ %.2f\n", mediaTotal);
+    printf("Média de vendas: R$ %.2f\n", mediaTotal);
     printf("Maior compra feita por um homem: R$ %.2f\n", maiorCompraHomem);
     printf("\nNome do cliente com maior quantidade de caracteres: %s (%d caracteres)\n", maiornome, maior);
 
