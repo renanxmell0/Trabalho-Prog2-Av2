@@ -194,7 +194,7 @@ void VendaEspecifica(clientes clientes, vendas *vendas) {
         return;
         }
         while (fgets(linhas, sizeof(linhas), arq) != NULL) {
-        char *t = strtok(linhas, " ");
+        char *t = strtok(linhas, ";");
         if (t != NULL && strcmp(t, nome) == 0) {
             printf("nome: %s\n", t);
             
